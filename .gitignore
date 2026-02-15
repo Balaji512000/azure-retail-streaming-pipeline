@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+
+# Databricks
+.databricks/
+*.dbc
+*.py.ipynb
+
+# Secrets & Configs
+*.env
+configs/local_secrets.json
+
+# IDE
+.vscode/
+.idea/
+
+# Data (Simulation leftovers)
+datasets/raw/*
+!datasets/raw/.gitkeep
+streaming-simulator/logs/
