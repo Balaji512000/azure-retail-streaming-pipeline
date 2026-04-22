@@ -1,0 +1,31 @@
+{
+    "name": "PL_Main_Streaming_Orchestration",
+    "properties": {
+        "activities": [
+            {
+                "name": "Bronze_Ingestion",
+                "type": "DatabricksNotebook",
+                "policy": { "retry": 3, "retryIntervalInSeconds": 60 },
+                "typeProperties": {
+                    "notebookPath": "/Repos/Production/ecommerce-streaming/databricks-notebooks/bronze/01_raw_to_bronze"
+                }
+            },
+            {
+                "name": "Silver_Processing",
+                "type": "DatabricksNotebook",
+                "dependsOn": [{ "activity": "Bronze_Ingestion", "dependencyConditions": ["Succeeded"] }],
+                "typeProperties": {
+                    "notebookPath": "/Repos/Production/ecommerce-streaming/databricks-notebooks/silver/02_cleansing_orders"
+                }
+            },
+            {
+                "name": "Gold_Aggregations",
+                "type": "DatabricksNotebook",
+                "dependsOn": [{ "activity": "Silver_Processing", "dependencyConditions": ["Succeeded"] }],
+                "typeProperties": {
+                    "notebookPath": "/Repos/Production/ecommerce-streaming/databricks-notebooks/gold/03_kpi_aggregations"
+                }
+            }
+        ]
+    }
+}
