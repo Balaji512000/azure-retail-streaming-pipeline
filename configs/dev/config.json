@@ -1,0 +1,17 @@
+{
+    "env": "dev",
+    "storage": {
+        "raw_path": "/mnt/datalake/raw/ecommerce_events/",
+        "bronze_path": "/mnt/datalake/bronze/ecommerce_events/",
+        "silver_path": "/mnt/datalake/silver/ecommerce_events/",
+        "gold_path": "/mnt/datalake/gold/hourly_sales/",
+        "checkpoint_base": "/mnt/datalake/checkpoints/"
+    },
+    "tables": {
+        "bronze": "bronze_ecommerce_events",
+        "silver": "silver_orders",
+        "gold": "gold_hourly_sales"
+    },
+    "eh_namespace": "eh-ecommerce-dev",
+    "consumer_group": "databricks-streaming-cg"
+}
