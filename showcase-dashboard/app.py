@@ -144,7 +144,7 @@ elif page == "Pipeline Monitoring":
         color = 'green' if val == 'SUCCESS' else 'red'
         return f'color: {color}'
 
-    st.table(batches.style.applymap(color_status, subset=['Status']))
+    st.table(batches.style.map(color_status, subset=['Status']))
     
     st.divider()
     
