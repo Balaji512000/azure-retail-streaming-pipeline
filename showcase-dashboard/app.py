@@ -22,10 +22,17 @@ st.markdown("""
         background-color: #f8f9fa;
     }
     .stMetric {
-        background-color: #ffffff;
+        background-color: #1e2130;
         padding: 15px;
-        border-radius: 5px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        border-radius: 10px;
+        border: 1px solid #31333f;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    [data-testid="stMetricValue"] {
+        color: #ffffff !important;
+    }
+    [data-testid="stMetricLabel"] {
+        color: #a3a8b4 !important;
     }
     .status-up { color: #28a745; font-weight: bold; }
     .status-down { color: #dc3545; font-weight: bold; }
